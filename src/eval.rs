@@ -168,8 +168,13 @@ fn matches_caret(cmp: &Comparator, ver: &Version) -> bool {
 }
 
 fn pre_is_compatible(cmp: &Comparator, ver: &Version) -> bool {
-    cmp.major == ver.major
-        && cmp.minor == Some(ver.minor)
-        && cmp.patch == Some(ver.patch)
-        && !cmp.pre.is_empty()
+    compatible_prerelease_position!(
+        cmp.major,
+        cmp.minor,
+        cmp.patch,
+        !cmp.pre.is_empty(),
+        ver.major,
+        ver.minor,
+        ver.patch,
+    )
 }

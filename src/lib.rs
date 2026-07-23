@@ -90,10 +90,12 @@ extern crate alloc;
 
 mod display;
 mod error;
-mod eval;
 mod identifier;
 mod impls;
 mod parse;
+#[macro_use]
+mod prerelease;
+mod eval;
 
 #[cfg(feature = "serde")]
 mod serde;
